@@ -1,0 +1,105 @@
+Result of 1-D aggregation is: 
+symboling(threshold:51)
+Less than threshold: ('3', 27),('2', 32),('-1', 22),('-2', 3)
+greater than threshold:('1', 54),('0', 67)
+
+normalized-losses(threshold:51)
+Less than threshold: ('208.25-256.0', 2),('160.5-208.25', 28)
+greater than threshold:('65.0-112.75', 78),('112.75-160.5', 57),('?', 160)
+
+make(threshold:51)
+Less than threshold: ('french-make', 13),('others-make', 29),('american-make', 19),('german-make', 35)
+greater than threshold:('japenese-make', 109)
+
+fuel-type(threshold:51)
+Less than threshold: ('diesel', 20)
+greater than threshold:('gas', 185)
+
+aspiration(threshold:51)
+Less than threshold: ('turbo', 37)
+greater than threshold:('std', 168)
+
+num-of-doors(threshold:51)
+Less than threshold: ('?', 2)
+greater than threshold:('four', 114),('two', 89)
+
+body-style(threshold:51)
+Less than threshold: ('wagon', 25),('convertible', 6),('hardtop', 8)
+greater than threshold:('sedan', 96),('hatchback', 70)
+
+drive-wheels(threshold:51)
+Less than threshold: ('4wd', 9)
+greater than threshold:('fwd', 120),('rwd', 76)
+
+engine-location(threshold:51)
+Less than threshold: ('rear', 3)
+greater than threshold:('front', 202)
+
+wheel-base(threshold:51)
+Less than threshold: ('112.325-120.9', 9),('103.75-112.325', 30)
+greater than threshold:('95.175-103.75', 106),('86.6-95.175', 60)
+
+length(threshold:51)
+Less than threshold: ('141.1-157.85', 26),('191.35-208.1', 16)
+greater than threshold:('157.85-174.6', 88),('174.6-191.35', 75)
+
+width(threshold:51)
+Less than threshold: ('60.3-63.3', 3),('69.3-72.3', 16)
+greater than threshold:('63.3-66.3', 125),('66.3-69.3', 61)
+
+height(threshold:51)
+Less than threshold: ('56.8-59.8', 13),('47.8-50.8', 39)
+greater than threshold:('50.8-53.8', 59),('53.8-56.8', 94)
+
+curb-weight(threshold:51)
+Less than threshold: ('1488.0-2132.5', 49),('3421.5-4066.0', 14)
+greater than threshold:('2132.5-2777.0', 90),('2777.0-3421.5', 52)
+
+engine-type(threshold:51)
+Less than threshold: ('rotor', 4),('dohc', 12),('ohcf', 15),('l', 12),('dohcv', 1),('ohcv', 13)
+greater than threshold:('ohc', 148)
+
+num-of-cylinders(threshold:51)
+Less than threshold: ('twelve', 1),('six', 24),('two', 4),('three', 1),('eight', 5),('five', 11)
+greater than threshold:('four', 159)
+
+engine-size(threshold:51)
+Less than threshold: ('193.5-259.75', 11),('259.75-326.0', 3)
+greater than threshold:('61.0-127.25', 130),('127.25-193.5', 61)
+
+fuel-system(threshold:51)
+Less than threshold: ('4bbl', 3),('mfi', 1),('spdi', 9),('idi', 20),('spfi', 1),('1bbl', 11)
+greater than threshold:('2bbl', 66),('mpfi', 94)
+
+bore(threshold:51)
+Less than threshold: ('2.54-2.89', 2),('?', 16),('3.59-3.94', 48)
+greater than threshold:('2.89-3.24', 87),('3.24-3.59', 64)
+
+stroke(threshold:51)
+Less than threshold: ('3.645-4.17', 9),('2.07-2.595', 4),('?', 16)
+greater than threshold:('3.12-3.645', 137),('2.595-3.12', 51)
+
+compression-ratio(threshold:51)
+Less than threshold: ('11.0-15.0', 1),('19.0-23.0', 20)
+greater than threshold:('7.0-11.0', 184)
+
+horsepower(threshold:51)
+Less than threshold: ('228.0-288.0', 2),('?', 8),('168.0-228.0', 12)
+greater than threshold:('108.0-168.0', 66),('48.0-108.0', 123)
+
+peak-rpm(threshold:51)
+Less than threshold: ('4150.0-4762.5', 32),('5987.5-6600.0', 11),('?', 8)
+greater than threshold:('4762.5-5375.0', 98),('5375.0-5987.5', 62)
+
+city-mpg(threshold:51)
+Less than threshold: ('31.0-40.0', 18),('40.0-49.0', 3)
+greater than threshold:('13.0-22.0', 70),('22.0-31.0', 114)
+
+highway-mpg(threshold:51)
+Less than threshold: ('44.5-54.0', 7),('35.0-44.5', 44)
+greater than threshold:('16.0-25.5', 60),('25.5-35.0', 94)
+
+price(threshold:51)
+Less than threshold: ('25259.0-35329.5', 10),('35329.5-45400.0', 7),('?', 16),('15188.5-25259.0', 44)
+greater than threshold:('5118.0-15188.5', 140)
+

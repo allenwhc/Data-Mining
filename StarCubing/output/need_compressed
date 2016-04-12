@@ -1,0 +1,27 @@
+Catagory:
+symboling does not need compress
+normalized-losses needs compress
+make does not need compress
+fuel-type does not need compress
+aspiration does not need compress
+num-of-doors does not need compress
+body-style does not need compress
+drive-wheels does not need compress
+engine-location does not need compress
+wheel-base needs compress
+length needs compress
+width needs compress
+height needs compress
+curb-weight needs compress
+engine-type does not need compress
+num-of-cylinders does not need compress
+engine-size needs compress
+fuel-system does not need compress
+bore needs compress
+stroke needs compress
+compression-ratio needs compress
+horsepower needs compress
+peak-rpm needs compress
+city-mpg needs compress
+highway-mpg needs compress
+price needs compress
