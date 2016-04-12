@@ -1,10 +1,4 @@
 from collections import defaultdict
-car_make=2
-
-class StarTreeNode(object):
-	def __init__(self):
-		self.leaf=False
-
 
 class Process(object):
 	def __init__(self,counter, threshold):
@@ -14,10 +8,9 @@ class Process(object):
 						'string','string','string','range','range','range', \
 						'range','range','string','string','range','string', \
 						'range','range','range','range','range','range', \
-						'range','range']
+						'range','range']	# type of variable of each catagory
 		
 	def oneDimensionalAggregates(self):
-		global car_make
 		table=[[] for i in xrange(len(self.counter))]
 		for i in xrange(len(self.counter)):
 			l=[defaultdict(int),defaultdict(int)]
@@ -28,66 +21,66 @@ class Process(object):
 			table[i].append(l[1] if l[1] else [])
 		return table
 
-	def constructCompressedBaseTable(self, data, table):
+	def constructCompressedBaseTable(self, data, table, need_compress_catagory):
 		data=map(list,zip(*data))
 		for i in xrange(len(data)):
-			#print table[i][0].keys()
 			for j in xrange(len(data[i])):
 				if table[i][0] and data[i][j] in table[i][0].keys():
 					data[i][j]='*'
-		data=map(list,zip(*data))
-		d={}
-		for i in range(0,len(data)):
-			if not d: 
-				d[i]=1
-				continue
-			for j,key in enumerate(d.keys()):
-				if not cmp(data[i],data[key]): 
-					#print i,key
-					d[key]+=1
-				else:
-					if j==len(list(d.keys()))-1: d[i]=1
-		return [(','.join(data[k]),v) for k,v in d.items()]
+		sorted_data=self.nodeOrdering(map(list,zip(*data)), need_compress_catagory)
+		d=self.countDuplicateList(sorted_data)
+		return [(','.join(sorted_data[k]),v) for k,v in d.items()]
 
-	def nodeOrdering(self, compressed_table):
-		compressed_table=map(list, zip(*compressed_table))
-		table_item=map(list,zip(*[item.split(',') for item in compressed_table[0]]))
+	def nodeOrdering(self, table, need_compress_catagory):
+		table_item=map(list,zip(*table))
 
-		def sortByCatagory(data_type, start, end, arr):
-			if data_type=='float' or 'range':
-				arr=sorted(arr[start:end])
-			elif data_type=='string':
-				arr=sorted(arr[start:end], key=lambda x: ord(x[0]))
-			# else:
-			# 	# arr=[float(x[:x.index('-')]) if isinstance(x,str) else x for x in arr]
-			# 	# print arr
-			# 	arr=sorted(arr[start:end])
-			return arr
+		def preSortingConfig(data_type, curr_column):
+			if not curr_column: return []
+			if data_type=='float':
+				for i in xrange(len(curr_column)):
+					if curr_column[i]=='*': curr_column[i]=-float('inf')
+					elif curr_column[i]=='?': curr_column[i]=float('inf')
+			elif data_type=='range':
+				for i in xrange(len(curr_column)):
+					if curr_column[i]=='*': curr_column[i]=-float('inf')
+					elif curr_column[i]=='?': curr_column[i]=float('inf')
+					else: curr_column[i]=float(curr_column[i][:curr_column[i].index('-')])
+			else:
+				for i in xrange(len(curr_column)):
+					if curr_column[i]=='*': curr_column[i]='#'
+					elif curr_column[i]=='?': curr_column[i]='~'
+			return curr_column
 
-		# Replace '*' in each row for sorting
-		for i in xrange(len(table_item)):
-			curr_column=table_item[i]
-			# For string type, replace '*' by '#';
-			# For float or range type, replace '*' by '-inf'
-			if '*' in table_item[i]:
-				curr_column=['#' if x=='*' else x for x in curr_column] if self.data_type[i]=='string' else [-float('inf') if x=='*' else x for x in curr_column]
-			table_item[i]=curr_column
-		# for i in table_item[18]:
-		# 	print type(i)
-		print table_item[0]
-		table_item=sorted(table_item, key=lambda x: x[0])
-		print table_item
-		# for i in table_item[19]:
-		# 	print i,'ori'
-		# table_item[19]=sortByCatagory(self.data_type[19],0,len(table_item[19]),table_item[19])
-		# for i in table_item[19]:
-		# 	print i
-		#print table_item[8]
+		# For string type, replace '*' by '#', '?' by '~';
+		# For float or range type, replace '*' by '-inf', '?' by 'inf'
+		new_config_table=map(list,zip(*[preSortingConfig(self.data_type[i],x) for i,x in enumerate(table_item)]))
 
-		return map(list,zip(*compressed_table))
+		# Sort table by catagory
+		new_config_table=map(list,zip(*sorted(new_config_table, key=lambda x: tuple([x[i] for i in range(len(new_config_table[0]))]))))
+		
+		# Reconfigure the table
+		for i in xrange(len(new_config_table)):
+			for j in xrange(len(new_config_table[i])):
+				if need_compress_catagory[i]:
+					for key in self.counter[i]:
+						if str(new_config_table[i][j]) in key:
+							new_config_table[i][j]=key
+							break
+				if new_config_table[i][j]==-float('inf') or new_config_table[i][j]=='#':
+					new_config_table[i][j]='*'
+				elif new_config_table[i][j]==float('inf') or new_config_table[i][j]=='~':
+					new_config_table[i][j]='?'
+		return map(list, zip(*new_config_table))
 
-	def starCubing(self):
-		pass
+	def countDuplicateList(self, table):
+		i,j=0,0
+		d=defaultdict(int)
+		while i<len(table):
+			if i==j: j+=1
+			while j<len(table) and not cmp(table[i], table[j]): j+=1
+			d[i]=j-i
+			i=j
+		return d
 
 class Cuboid(Process):
 	def __init__(self, counter, threshold):
@@ -96,9 +89,6 @@ class Cuboid(Process):
 	def getOneDimensionTable(self):
 		return super(Cuboid, self).oneDimensionalAggregates()
 
-	def getCompressedBaseTable(self, data):
+	def getCompressedBaseTable(self, data, need_compress_catagory):
 		table=super(Cuboid, self).oneDimensionalAggregates()
-		return super(Cuboid, self).constructCompressedBaseTable(data, table)
-
-	def getNodeOrdering(self, compressed_table):
-		return super(Cuboid, self).nodeOrdering(compressed_table)
+		return super(Cuboid, self).constructCompressedBaseTable(data, table, need_compress_catagory)

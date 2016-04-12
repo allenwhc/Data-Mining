@@ -1,6 +1,7 @@
 car_make=2
 class Test(object):
 	def __init__(self):
+		self.starTree=open('../output/star_tree','w')
 		self.catagory=['symboling','normalized-losses','make','fuel-type','aspiration','num-of-doors',\
 					'body-style','drive-wheels','engine-location','wheel-base','length','width',\
 					'height','curb-weight','engine-type','num-of-cylinders','engine-size',\
@@ -46,3 +47,19 @@ class Test(object):
 		for i, (item, count) in enumerate(compressed_table,1):
 			compress.write(('Item %s: '+item+'\n'+'Count:'+str(count)+'\n\n')%str(i))
 		compress.close()
+
+	def testStarTree(self, root, lv, count, indent):
+		q=[]
+		q.append(root)
+		while q:
+			sz=len(q)
+			for i in range(sz):
+				node=q.pop(0)
+				for k,v in node.children.items():
+					q.append(v)
+					self.starTree.write(k+'   ')
+			self.starTree.write('\n')
+			lv+=1
+		# for k,v in root.children.items():
+		# 	self.starTree.write(indent+'item=%s'%k+', level=%s'%str(lv+1)+', count='+str(count[lv])+'\n')
+		# 	self.testStarTree(v, lv+1, count, indent+'   ')

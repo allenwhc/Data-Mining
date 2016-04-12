@@ -1,105 +1,105 @@
 Result of 1-D aggregation is: 
-symboling(threshold:51)
-Less than threshold: ('3', 27),('2', 32),('-1', 22),('-2', 3)
-greater than threshold:('1', 54),('0', 67)
+symboling(threshold:68)
+Less than threshold: ('1', 54),('0', 67),('3', 27),('2', 32),('-1', 22),('-2', 3)
+greater than threshold:
 
-normalized-losses(threshold:51)
-Less than threshold: ('208.25-256.0', 2),('160.5-208.25', 28)
-greater than threshold:('65.0-112.75', 78),('112.75-160.5', 57),('?', 160)
+normalized-losses(threshold:68)
+Less than threshold: ('141.4-160.49', 21),('122.3-141.39', 20),('217.8-236.89', 1),('103.2-122.29', 31),('179.6-198.69', 10),('84.1-103.19', 46),('160.5-179.59', 18),('236.9-255.99', 1),('65.0-84.09', 17),('?', 40)
+greater than threshold:
 
-make(threshold:51)
-Less than threshold: ('french-make', 13),('others-make', 29),('american-make', 19),('german-make', 35)
-greater than threshold:('japenese-make', 109)
+make(threshold:68)
+Less than threshold: ('subaru', 12),('audi', 7),('mercury', 1),('chevrolet', 3),('porsche', 5),('saab', 6),('dodge', 9),('isuzu', 4),('honda', 13),('volkswagen', 12),('mazda', 17),('bmw', 8),('mercedes-benz', 8),('mitsubishi', 13),('peugot', 11),('jaguar', 3),('renault', 2),('alfa-romero', 3),('nissan', 18),('toyota', 32),('volvo', 11),('plymouth', 7)
+greater than threshold:
 
-fuel-type(threshold:51)
+fuel-type(threshold:68)
 Less than threshold: ('diesel', 20)
 greater than threshold:('gas', 185)
 
-aspiration(threshold:51)
+aspiration(threshold:68)
 Less than threshold: ('turbo', 37)
 greater than threshold:('std', 168)
 
-num-of-doors(threshold:51)
+num-of-doors(threshold:68)
 Less than threshold: ('?', 2)
 greater than threshold:('four', 114),('two', 89)
 
-body-style(threshold:51)
+body-style(threshold:68)
 Less than threshold: ('wagon', 25),('convertible', 6),('hardtop', 8)
 greater than threshold:('sedan', 96),('hatchback', 70)
 
-drive-wheels(threshold:51)
+drive-wheels(threshold:68)
 Less than threshold: ('4wd', 9)
 greater than threshold:('fwd', 120),('rwd', 76)
 
-engine-location(threshold:51)
+engine-location(threshold:68)
 Less than threshold: ('rear', 3)
 greater than threshold:('front', 202)
 
-wheel-base(threshold:51)
-Less than threshold: ('112.325-120.9', 9),('103.75-112.325', 30)
-greater than threshold:('95.175-103.75', 106),('86.6-95.175', 60)
+wheel-base(threshold:68)
+Less than threshold: ('100.32-103.74', 24),('86.6-90.02', 8),('96.89-100.31', 42),('107.18-110.6', 15),('103.75-107.17', 14),('90.03-93.45', 9),('110.61-114.03', 3),('114.04-117.46', 6),('117.47-120.89', 1),('?', 0)
+greater than threshold:('93.46-96.88', 83)
 
-length(threshold:51)
-Less than threshold: ('141.1-157.85', 26),('191.35-208.1', 16)
-greater than threshold:('157.85-174.6', 88),('174.6-191.35', 75)
+length(threshold:68)
+Less than threshold: ('161.2-167.89', 23),('201.4-208.09', 3),('194.7-201.39', 8),('154.5-161.19', 29),('174.6-181.29', 37),('141.1-147.79', 3),('167.9-174.59', 56),('188.0-194.69', 20),('181.3-187.99', 23),('147.8-154.49', 3),('?', 0)
+greater than threshold:
 
-width(threshold:51)
-Less than threshold: ('60.3-63.3', 3),('69.3-72.3', 16)
-greater than threshold:('63.3-66.3', 125),('66.3-69.3', 61)
+width(threshold:68)
+Less than threshold: ('65.1-66.29', 50),('71.1-72.29', 8),('68.7-69.89', 7),('62.7-63.89', 39),('60.3-61.49', 1),('61.5-62.69', 2),('69.9-71.09', 6),('63.9-65.09', 36),('67.5-68.69', 20),('66.3-67.49', 36),('?', 0)
+greater than threshold:
 
-height(threshold:51)
-Less than threshold: ('56.8-59.8', 13),('47.8-50.8', 39)
-greater than threshold:('50.8-53.8', 59),('53.8-56.8', 94)
+height(threshold:68)
+Less than threshold: ('51.4-52.59', 30),('53.8-54.99', 41),('49.0-50.19', 15),('58.6-59.79', 9),('52.6-53.79', 26),('?', 0),('56.2-57.39', 12),('50.2-51.39', 24),('55.0-56.19', 41),('47.8-48.99', 3),('57.4-58.59', 4)
+greater than threshold:
 
-curb-weight(threshold:51)
-Less than threshold: ('1488.0-2132.5', 49),('3421.5-4066.0', 14)
-greater than threshold:('2132.5-2777.0', 90),('2777.0-3421.5', 52)
+curb-weight(threshold:68)
+Less than threshold: ('3034.8-3292.59', 26),('3808.2-4065.99', 4),('2003.6-2261.39', 33),('1745.8-2003.59', 29),('1488.0-1745.79', 2),('2261.4-2519.19', 50),('3292.6-3550.39', 8),('2777.0-3034.79', 23),('2519.2-2776.99', 25),('3550.4-3808.19', 5),('?', 0)
+greater than threshold:
 
-engine-type(threshold:51)
+engine-type(threshold:68)
 Less than threshold: ('rotor', 4),('dohc', 12),('ohcf', 15),('l', 12),('dohcv', 1),('ohcv', 13)
 greater than threshold:('ohc', 148)
 
-num-of-cylinders(threshold:51)
+num-of-cylinders(threshold:68)
 Less than threshold: ('twelve', 1),('six', 24),('two', 4),('three', 1),('eight', 5),('five', 11)
 greater than threshold:('four', 159)
 
-engine-size(threshold:51)
-Less than threshold: ('193.5-259.75', 11),('259.75-326.0', 3)
-greater than threshold:('61.0-127.25', 130),('127.25-193.5', 61)
+engine-size(threshold:68)
+Less than threshold: ('114.0-140.49', 46),('193.5-219.99', 7),('61.0-87.49', 6),('220.0-246.49', 2),('299.5-325.99', 3),('167.0-193.49', 14),('140.5-166.99', 30),('?', 0),('246.5-272.99', 2)
+greater than threshold:('87.5-113.99', 95)
 
-fuel-system(threshold:51)
-Less than threshold: ('4bbl', 3),('mfi', 1),('spdi', 9),('idi', 20),('spfi', 1),('1bbl', 11)
-greater than threshold:('2bbl', 66),('mpfi', 94)
+fuel-system(threshold:68)
+Less than threshold: ('4bbl', 3),('mfi', 1),('spdi', 9),('2bbl', 66),('idi', 20),('spfi', 1),('1bbl', 11)
+greater than threshold:('mpfi', 94)
 
-bore(threshold:51)
-Less than threshold: ('2.54-2.89', 2),('?', 16),('3.59-3.94', 48)
-greater than threshold:('2.89-3.24', 87),('3.24-3.59', 64)
+bore(threshold:68)
+Less than threshold: ('2.54-2.67', 2),('3.66-3.79', 19),('3.52-3.65', 42),('3.38-3.51', 27),('2.82-2.95', 8),('3.8-3.93', 2),('3.1-3.23', 42),('2.96-3.09', 37),('3.24-3.37', 22),('?', 4)
+greater than threshold:
 
-stroke(threshold:51)
-Less than threshold: ('3.645-4.17', 9),('2.07-2.595', 4),('?', 16)
-greater than threshold:('3.12-3.645', 137),('2.595-3.12', 51)
+stroke(threshold:68)
+Less than threshold: ('2.07-2.27', 3),('2.7-2.9', 7),('2.49-2.69', 13),('3.12-3.32', 51),('2.91-3.11', 31),('2.28-2.48', 1),('3.96-4.16', 2),('3.54-3.74', 11),('3.75-3.95', 7),('?', 4)
+greater than threshold:('3.33-3.53', 75)
 
-compression-ratio(threshold:51)
-Less than threshold: ('11.0-15.0', 1),('19.0-23.0', 20)
-greater than threshold:('7.0-11.0', 184)
+compression-ratio(threshold:68)
+Less than threshold: ('?', 0),('21.4-22.99', 15),('7.0-8.59', 56),('10.2-11.79', 1),('19.8-21.39', 5)
+greater than threshold:('8.6-10.19', 128)
 
-horsepower(threshold:51)
-Less than threshold: ('228.0-288.0', 2),('?', 8),('168.0-228.0', 12)
-greater than threshold:('108.0-168.0', 66),('48.0-108.0', 123)
+horsepower(threshold:68)
+Less than threshold: ('240.0-263.99', 1),('264.0-287.99', 1),('96.0-119.99', 50),('120.0-143.99', 12),('168.0-191.99', 8),('48.0-71.99', 56),('72.0-95.99', 48),('192.0-215.99', 4),('144.0-167.99', 23),('?', 2)
+greater than threshold:
 
-peak-rpm(threshold:51)
-Less than threshold: ('4150.0-4762.5', 32),('5987.5-6600.0', 11),('?', 8)
-greater than threshold:('4762.5-5375.0', 98),('5375.0-5987.5', 62)
+peak-rpm(threshold:68)
+Less than threshold: ('5620.0-5864.99', 8),('5865.0-6109.99', 12),('5375.0-5619.99', 51),('4885.0-5129.99', 31),('4395.0-4639.99', 10),('4150.0-4394.99', 17),('5130.0-5374.99', 31),('4640.0-4884.99', 41),('?', 2),('6355.0-6599.99', 2)
+greater than threshold:
 
-city-mpg(threshold:51)
-Less than threshold: ('31.0-40.0', 18),('40.0-49.0', 3)
-greater than threshold:('13.0-22.0', 70),('22.0-31.0', 114)
+city-mpg(threshold:68)
+Less than threshold: ('45.4-48.99', 2),('23.8-27.39', 56),('31.0-34.59', 3),('27.4-30.99', 46),('13.0-16.59', 12),('34.6-38.19', 15),('16.6-20.19', 46),('20.2-23.79', 24),('41.8-45.39', 1),('?', 0)
+greater than threshold:
 
-highway-mpg(threshold:51)
-Less than threshold: ('44.5-54.0', 7),('35.0-44.5', 44)
-greater than threshold:('16.0-25.5', 60),('25.5-35.0', 94)
+highway-mpg(threshold:68)
+Less than threshold: ('35.0-38.79', 32),('38.8-42.59', 8),('16.0-19.79', 7),('27.4-31.19', 47),('42.6-46.39', 6),('31.2-34.99', 39),('46.4-50.19', 3),('23.6-27.39', 44),('19.8-23.59', 17),('50.2-53.99', 2),('?', 0)
+greater than threshold:
 
-price(threshold:51)
-Less than threshold: ('25259.0-35329.5', 10),('35329.5-45400.0', 7),('?', 16),('15188.5-25259.0', 44)
-greater than threshold:('5118.0-15188.5', 140)
+price(threshold:68)
+Less than threshold: ('17202.6-21230.79', 17),('25259.0-29287.19', 3),('29287.2-33315.39', 4),('37343.6-41371.79', 2),('41371.8-45399.99', 1),('9146.2-13174.39', 45),('21230.8-25258.99', 6),('33315.4-37343.59', 7),('?', 4),('13174.4-17202.59', 35)
+greater than threshold:('5118.0-9146.19', 81)
 

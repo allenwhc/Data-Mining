@@ -1,6 +1,7 @@
 from collections import defaultdict, Counter
 symboling=0
 car_make=2
+fuel_system=17
 
 class Process(object):
 	def __init__(self, input_data):
@@ -16,12 +17,14 @@ class Process(object):
 		s=[line for line in self.original_data.read().splitlines()]
  		data=[line.split(',') for line in s]
  		data=map(list,zip(*data))
-		for j in xrange(len(data[car_make])):
-			if data[car_make][j] in ['nissan','toyota','mazda','honda','isuzu','subaru','mitsubishi']: data[car_make][j]='japenese-make'
-			elif data[car_make][j] in ['volkswagen','bmw','audi','mercedes-benz']: data[car_make][j]='german-make'
-			elif data[car_make][j] in ['peugot','renault']: data[car_make][j]='french-make'
-			elif data[car_make][j] in ['plymouth','dodge','chevrolet']: data[car_make][j]='american-make'
-			else: data[car_make][j]='others-make'
+		# for j in xrange(len(data[car_make])):
+		# 	if data[car_make][j] in ['nissan','toyota','mazda','honda','isuzu','subaru','mitsubishi']: data[car_make][j]='japenese-make'
+		# 	elif data[car_make][j] in ['volkswagen','bmw','audi','mercedes-benz']: data[car_make][j]='german-make'
+		# 	elif data[car_make][j] in ['peugot','renault']: data[car_make][j]='french-make'
+		# 	elif data[car_make][j] in ['plymouth','dodge','chevrolet']: data[car_make][j]='american-make'
+		# 	else: data[car_make][j]='others-make'
+		# for j in xrange(len(data[fuel_system])):
+		# 	if data[fuel_system][j] in ['1bbl','2bbl','4bbl']: data[fuel_system][j]='barrel-injection'
 		return map(list,zip(*data))
 
 	def checkNeedCompress(self):
@@ -45,31 +48,29 @@ class Process(object):
 
 		def convertToRange(data_by_column,curr_column_idx,row,n):
 			d=defaultdict(int)
-			trimmed_sorted_list=sorted(map(float,[x for x in data_by_column if x!='?'])) 
-			self.len_valid_dataset[row]=len(trimmed_sorted_list)
 			lower,upper=min(map(float,[x for x in data_by_column if x!='?'])),max(map(float,[x for x in data_by_column if x!='?']))
 			num_range,i=[],lower
 			while round(i+(upper-lower)/n,2)<=upper:
-				num_range.append((str(i)+'-'+str(i+(upper-lower)/n),round(i+(upper-lower)/n,2)))
+				num_range.append((str(round(i,2))+'-'+str(round(i+(upper-lower)/n-0.01,2)),round(i+(upper-lower)/n,2)))
 				i+=(upper-lower)/n
-
+			d['?']=data_by_column.count('?')
 			for x, item in enumerate(data_by_column):
 				for _range, _max in num_range:
-					if item=='?': d['?']+=1
-					elif item!='?' and float(item)<=_max:	
+					if item!='?' and float(item)<=_max:	
 						d[_range]+=1
 						curr_column_idx[_range].append(x)
 						break
 			return d
 
 		for i in xrange(len(dataset)):
-			if i==car_make or not self.need_compress_catagory[i]:
+			if not self.need_compress_catagory[i]:
 				counter[i]=defaultdict(int,Counter(dataset[i]))
 			else:
 				curr_column_idx=defaultdict(list)
-				counter[i]=convertToRange(dataset[i], curr_column_idx, i, 4)
+				counter[i]=convertToRange(dataset[i], curr_column_idx, i, 10)
 				index[i]=curr_column_idx
 				self.index=index
+		#print counter
 		return counter
 
 	def rearrangeData(self):
