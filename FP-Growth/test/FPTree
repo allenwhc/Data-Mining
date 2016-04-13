@@ -1,0 +1,7 @@
+FPTree is: 
+lv:0   root
+lv:1   a(7) -> a(1)   b(3) -> null   
+lv:2   c(1) -> c(3)   b(4) -> b(3)   d(1) -> d(1)   a(1) -> null   c(2) -> null   
+lv:3   d(1) -> d(1)   c(3) -> c(2)   d(1) -> d(1)   e(1) -> e(1)   e(1) -> null   d(1) -> null   
+lv:4   e(1) -> e(1)   d(1) -> d(1)   
+lv:5   

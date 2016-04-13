@@ -53,6 +53,7 @@ class Test(object):
 		q.append(root)
 		while q:
 			sz=len(q)
+			self.starTree.write('lv=%s'%(lv+1)+'\n')
 			for i in range(sz):
 				node=q.pop(0)
 				for k,v in node.children.items():
