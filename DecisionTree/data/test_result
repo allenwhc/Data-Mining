@@ -1,0 +1,5 @@
+Test result is:
+If 3,2,1,3,3,4,2,13,3,13, then: None
+If 2,10,2,11,2,12,2,13,2,1, then: None
+If 3,12,3,2,3,11,4,5,2,5, then: None
+If 2,2,1,13,2,13,4,3,4,13, then: None
