@@ -6,7 +6,6 @@ from KernighanLin import KernighanLin
 from graph import Getgraph
 class Main(object):
 	def main(self,graph):
-		# weight={self.weight[i][0]:set([(self.weight[0][j],self.weight[i][j]) for j in xrange(1, len(self.weight[i])) if self.weight[i][0]!=self.weight[0][j]]) for i in xrange(1, len(self.weight))}
 		V=self.vertex(graph)
 		g=Getgraph(graph,V)
 		G=g.getG()
@@ -22,7 +21,7 @@ class Main(object):
 	def vertex(self,graph):
 		return list(set((Counter(list(zip(*graph)[0])).keys())) | set(Counter(list(zip(*graph)[1])).keys()))	# Get all vertex
 
-#te=open('../input/weight.txt','r')
+# Define a weight undirected graph
 G=[('a','b',1),('a','c',2),('a','d',3),('a','e',2),('a','f',4),\
 	('b','c',1),('b','d',4),('b','e',2),('b','f',1),\
 	('c','d',3),('c','e',2),('c','f',1),\
