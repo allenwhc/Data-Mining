@@ -8,8 +8,9 @@ class Process(object):
 	def __init__(self, data, attributes):
 		self.input_data=data
 		self.attributes=attributes
-		self.poker_hand=['Nothing in hand','One pair','Two pairs','Three of a kind',\
-						'Straight','Flush','Full house','Four of a kind','Straight flush','Royal flush']
+		self.class_v=['yes','no']
+		# self.poker_hand=['Nothing in hand','One pair','Two pairs','Three of a kind',\
+		# 				'Straight','Flush','Full house','Four of a kind','Straight flush','Royal flush']
 		self.I=[]
 	
 	def constructTree(self):	
@@ -45,8 +46,11 @@ class Process(object):
 	def parseText(self, data):
 		return [line.split(',') for line in data.read().splitlines()]
 		# D=map(list,zip(*D))
-		# _end=len(D) if len(D)!=len(self.attributes) else len(D)-1
-		# for i in xrange(_end):
+		# if len(D)==len(self.attributes):
+		# 	for j in xrange(len(D[-1])): D[-1][j]=self.poker_hand[int(D[-1][j])]
+
+		# print len(D),len(self.attributes)
+		# for i in xrange(len(D)-1):
 		# 	if not i%2:
 		# 		for j in xrange(len(D[i])):
 		# 			if D[i][j]=='1': D[i][j]='hearts'
@@ -72,11 +76,9 @@ class Process(object):
 			node=root
 			for A in test_data:
 				node=node.children[A]
-				for x in self.poker_hand:
-					print x, node.children.keys()
+				for x in self.class_v:
 					if x in node.children.keys(): return x
-				if not node: return "Invalid input data"
-			#
+ 				if not node: return "Invalid input data"
 		test_data=testDataPreConfig(test_data)
 		node=root
 		return dfs(node,test_data)
@@ -88,13 +90,14 @@ class Main(Process):
 
 	def main(self):
 		root=super(Main, self).constructTree()
-		D=super(Main, self).parseText(self.test_data)
 		t=Test()
 		t.outputDecisionTree(root)
-		test_result=[super(Main, self).testOutcome(x,root) for x in D]
-		t.outputTestOutcome(D,test_result)
+		TD=super(Main, self).parseText(self.test_data)
+		test_result=[super(Main, self).testOutcome(x,root) for x in TD]
+		t.outputTestOutcome(TD,test_result)
 
 t=open('../data/input_data.txt','r')
 t_d=open('../data/test_data.txt','r')
-a=['Suit1','Rank1','Suit2','Rank2','Suit3','Rank3','Suit4','Hand4','Suit5','Hand5','Type']
+#a=['Suit1','Rank1','Suit2','Rank2','Suit3','Rank3','Suit4','Hand4','Suit5','Hand5','Type']
+a=['Outlook','Temperature','Humidity','Wind','PlayTennis']
 Main(t,a,t_d).main()

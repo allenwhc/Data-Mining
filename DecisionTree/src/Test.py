@@ -9,7 +9,7 @@ class Test(object):
 		def dfs(node,path):
 			if node.leaf:
 				tree.write('->'.join(path)+'\n')
-				path.pop()
+				if path: path.pop()
 				return
 			for value, child in node.children.items():
 				path.append(value)
